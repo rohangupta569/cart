@@ -9,6 +9,11 @@ class CartItem extends React.Component {
             qty : 1 ,
             img : ''
         }
+        //this.increaseQuantity = this.increaseQuantity.bind(this);
+    }
+    // we are using arrow function here so that we dont have to use .bind() here and arrow function will bind the value of *this* to the instance of the class (here CartItem)
+    increaseQuantity = () => {
+        console.log('this', this.state);
     }
     render() {
         const {price , title , qty} = this.state;
@@ -23,9 +28,22 @@ class CartItem extends React.Component {
                     <div style={ { color:'#777f' } }> Qty : {qty}</div>
                     <div className="cart-item-actions">
                         {/*Buttons */}
-                        <img  alt = "increase" className="action-icons" src="https://cdn-icons-png.flaticon.com/512/992/992651.png"  />
-                        <img  alt = "decrease" className="action-icons" src="https://cdn-icons-png.flaticon.com/512/992/992683.png"  />
-                        <img  alt = "delete" className="action-icons" src="https://cdn-icons-png.flaticon.com/512/3096/3096673.png"  />
+                        <img  
+                        alt = "increase" 
+                        className="action-icons" 
+                        src="https://cdn-icons-png.flaticon.com/512/992/992651.png" 
+                        onClick={this.increaseQuantity} 
+                        />
+                        <img  
+                        alt = "decrease" 
+                        className="action-icons" 
+                        src="https://cdn-icons-png.flaticon.com/512/992/992683.png"  
+                        />
+                        <img  
+                        alt = "delete" 
+                        className="action-icons" 
+                        src="https://cdn-icons-png.flaticon.com/512/3096/3096673.png"  
+                        />
                     </div>
                 </div>
             </div>
