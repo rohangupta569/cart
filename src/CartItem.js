@@ -13,7 +13,19 @@ class CartItem extends React.Component {
     }
     // we are using arrow function here so that we dont have to use .bind() here and arrow function will bind the value of *this* to the instance of the class (here CartItem)
     increaseQuantity = () => {
-        console.log('this', this.state);
+        //this.state.qty += 1;
+        //console.log('this', this.state);
+        //setState form 1
+        // this.setState({
+        //     qty: this.state.qty + 1
+        // });
+
+        //setState form 2 - if previous state required use this
+        this.setState((prevState) => {
+            return {
+                qty: prevState.qty + 1
+            }
+        });
     }
     render() {
         const {price , title , qty} = this.state;
