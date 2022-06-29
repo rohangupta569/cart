@@ -58,6 +58,15 @@ class Cart extends React.Component {
             products
         })
     }
+    handleDeleteProduct = (id) => {
+        const{ products } = this.state;
+
+        const items = products.filter((item) => item.id !== id);//It will return us an array with not the id given in line 61
+
+        this.setState({
+            products: items
+        })
+    }
     render () {
         const {products} = this.state;
         return (
@@ -69,6 +78,7 @@ class Cart extends React.Component {
                       key ={product.id} 
                       onIncreaseQuantity = {this.handleIncreaseQuantity}
                       onDecreaseQuantity = {this.handleDecreaseQuantity}
+                      onDeleteProduct = {this.handleDeleteProduct}
                     />
                 )
                 })}
