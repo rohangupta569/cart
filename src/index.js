@@ -3,8 +3,10 @@ import ReactDOM  from 'react-dom';
 import './index.css';
 import App from './App';
 
-import * as firebase from 'firebase/app';
-import 'firebase/firestore';
+// import * as firebase from 'firebase/app';
+// import 'firebase/firestore';
+import firebase from "firebase/compat/app";
+import "firebase/compat/firestore";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -17,7 +19,7 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-firebase.default.initializeApp(firebaseConfig);
+firebase.initializeApp(firebaseConfig);
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
