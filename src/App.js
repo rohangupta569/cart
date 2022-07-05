@@ -120,10 +120,19 @@ class App extends React.Component{
   handleDeleteProduct = (id) => {
       const{ products } = this.state;
 
-      const items = products.filter((item) => item.id !== id);//It will return us an array with not the id given in line 61
+      // const items = products.filter((item) => item.id !== id);//It will return us an array with not the id given in handleDeleteProduct
 
-      this.setState({
-          products: items
+      // this.setState({
+      //     products: items
+      // })
+      const docRef = this.db.collection('products').doc(id);
+      docRef
+      .delete()
+      .then(() => {
+        console.log('Deleted successfully');
+      })
+      .catch((error)=>{
+        console.log('Error :' , error);
       })
   }
 
